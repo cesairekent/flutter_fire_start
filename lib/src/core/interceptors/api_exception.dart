@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_fire_starter/src/core/app_configs/app_colors.dart';
-import 'package:flutter_fire_starter/src/models/api_response_model.dart';
+import 'package:flutter_fire_starter/src/models/api/api_response_model.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hexcolor/hexcolor.dart';
 

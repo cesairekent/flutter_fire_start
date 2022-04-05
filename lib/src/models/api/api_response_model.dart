@@ -1,4 +1,4 @@
-import 'package:flutter_fire_starter/src/models/api_error_model.dart';
+import 'package:flutter_fire_starter/src/models/api/api_error_model.dart';
 
 class ApiResponse
 {
