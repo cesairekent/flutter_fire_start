@@ -1,0 +1,10 @@
+{
+    "helloWorld": "Bonjour le monde !",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "gotoForm": "Aller à la page formulaire",
+    "gotoList": "Aller à la page liste",
+    "sampleForm": "Formulaire d'exemple",
+    "sampleRefreshList": "Exemple Liste Rafraîchir"
+}
