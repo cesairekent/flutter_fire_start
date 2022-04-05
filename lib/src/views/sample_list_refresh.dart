@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fire_starter/src/view_models/sample_refresh_list_view.dart';
 import 'package:flutter_fire_starter/src/view_models/sample_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -40,8 +39,6 @@ class _SampleRefreshListPageState extends State<SampleRefreshListView>
   @override
   Widget build(BuildContext context)
   {
-    var sample = context.watch<SampleRefreshListVM>();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
