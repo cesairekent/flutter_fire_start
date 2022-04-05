@@ -1,8 +1,16 @@
 # flutter_fire_start
 
-A new Flutter project.
+Flutter Template Project with Provider & MVVM architeture, include many features:
 
-## Getting Started
+- Native flutter i18n using additional package https://pub.dev/packages/intl
+- Http request & interceptor with Dio package https://pub.dev/packages/dio
+- List implementation with pull to refresh option https://pub.dev/packages/pull_to_refresh
+- Form Builder & validators using https://pub.dev/packages/flutter_form_builder, https://pub.dev/packages/form_builder_validators
+- Toast package using https://pub.dev/packages/fluttertoast
+- Launch icon & native splashscreen with https://pub.dev/packages/flutter_launcher_icons, https://pub.dev/packages/flutter_native_splash
+
+
+## Getting Started with Flutter
 
 This project is a starting point for a Flutter application.
 
