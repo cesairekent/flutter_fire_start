@@ -42,7 +42,7 @@ class _SamplePageState extends State<SampleView> {
                 children: <Widget>[
                   ElevatedButton(
                     child: Text('Fr'),
-                    onPressed: () {
+                    onPressed: () async {
                       final localeProvider =
                           Provider.of<LocaleProvider>(context, listen: false);
                       localeProvider.setLocale(const Locale('fr'));
@@ -65,7 +65,7 @@ class _SamplePageState extends State<SampleView> {
                   ),
                   ElevatedButton(
                     child: Text('En'),
-                    onPressed: () {
+                    onPressed: () async {
                       final localeProvider =
                           Provider.of<LocaleProvider>(context, listen: false);
                       localeProvider.setLocale(const Locale('en'));

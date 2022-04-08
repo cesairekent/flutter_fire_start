@@ -9,6 +9,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   final prefs = await SharedPreferences.getInstance();
   String lang = prefs.getString('language') ?? 'fr';
 
@@ -32,9 +34,11 @@ class MyApp extends StatelessWidget {
   final String language;
 
   @override
-  Widget build(BuildContext context) 
+  Widget build(BuildContext context)
   {
     final provider = Provider.of<LocaleProvider>(context);
+    provider.localeLang = Locale(language);
+
     return MaterialApp(
       title: 'Flutter Demo',
       localizationsDelegates: const [
@@ -48,7 +52,7 @@ class MyApp extends StatelessWidget {
         Locale('fr', ''), // French, no country code
         Locale('en', ''), // English, no country code
       ],
-      locale: Locale(language, ''), //provider.locale,
+      locale: provider.locale,
       localeResolutionCallback: (locale, supportedLocales) {
         return locale;
       },
