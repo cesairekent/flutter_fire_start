@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context)
   {
     final provider = Provider.of<LocaleProvider>(context);
-    provider.localeLang = Locale(language);
+    //provider.localeLang = Locale(language);
 
     return MaterialApp(
       title: 'Flutter Demo',
@@ -49,8 +49,8 @@ class MyApp extends StatelessWidget {
         FormBuilderLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale('fr', ''), // French, no country code
-        Locale('en', ''), // English, no country code
+        Locale('fr'), // French, no country code
+        Locale('en'), // English, no country code
       ],
       locale: provider.locale,
       localeResolutionCallback: (locale, supportedLocales) {

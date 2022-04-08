@@ -5,11 +5,11 @@ class LocaleProvider extends ChangeNotifier
 {
   Locale localeLang = const Locale('fr');
 
-  Locale get locale{
+  Locale get locale {
     return localeLang;
   }
 
-  setLocale(Locale locale) async{
+  setLocale(Locale locale) async {
     final prefs = await  SharedPreferences.getInstance();
     prefs.setString('language', locale.languageCode);
     localeLang = locale;
