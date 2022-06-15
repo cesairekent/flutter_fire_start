@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fire_starter/src/core/l10n/locale_provider.dart';
-import 'package:flutter_fire_starter/src/view_models/sample_view_model.dart';
-import 'package:flutter_fire_starter/src/views/sample_form_view.dart';
-import 'package:flutter_fire_starter/src/views/sample_list_refresh.dart';
+import 'package:flutter_fire_starter/src/view_models/samples/sample_view_model.dart';
+import 'package:flutter_fire_starter/src/views/samples/sample_form_view.dart';
+import 'package:flutter_fire_starter/src/views/samples/sample_list_refresh.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class SampleView extends StatefulWidget {
   const SampleView({Key? key, required this.title}) : super(key: key);
@@ -41,7 +40,7 @@ class _SamplePageState extends State<SampleView> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   ElevatedButton(
-                    child: Text('Fr'),
+                    child: const Text('Fr'),
                     onPressed: () async {
                       final localeProvider =
                           Provider.of<LocaleProvider>(context, listen: false);
@@ -49,7 +48,7 @@ class _SamplePageState extends State<SampleView> {
                     },
                   ),
                   MaterialButton(
-                    child: Text('Add'),
+                    child: const Text('Add'),
                     color: Colors.green,
                     onPressed: () {
                       //var countProvider = Provider.of<SampleVM>(context, listen: true);
@@ -57,14 +56,14 @@ class _SamplePageState extends State<SampleView> {
                     },
                   ),
                   MaterialButton(
-                    child: Text('Clear'),
+                    child: const Text('Clear'),
                     color: Colors.red,
                     onPressed: () {
                       sample.clearListNumber();
                     },
                   ),
                   ElevatedButton(
-                    child: Text('En'),
+                    child: const Text('En'),
                     onPressed: () async {
                       final localeProvider =
                           Provider.of<LocaleProvider>(context, listen: false);
@@ -81,7 +80,7 @@ class _SamplePageState extends State<SampleView> {
                     itemBuilder: (context, index) {
                       var item = sample.listCount[index];
                       return Text(
-                        'Item ${item} added',
+                        'Item $item added',
                         style: Theme.of(context).textTheme.headline6,
                       );
                     },

@@ -1,12 +1,12 @@
 class ApiError
 {
-  final int Code;
-  final String Message;
+  final int code;
+  final String message;
 
   const ApiError(
     {
-      required this.Code,
-      required this.Message
+      required this.code,
+      required this.message
     }
   );
 
@@ -16,8 +16,8 @@ class ApiError
     final message = json['message'];
 
     return ApiError(
-      Code: code,
-      Message: message
+      code: code,
+      message: message
     );
   }
 }
