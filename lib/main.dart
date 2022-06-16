@@ -1,3 +1,4 @@
+import 'package:country_code_picker/country_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fire_starter/src/core/app_configs/app_colors.dart';
 import 'package:flutter_fire_starter/src/core/l10n/locale_provider.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  static Map<int, Color> color = {
+  static Map<int, Color> color =
+  {
     50: HexColor(AppColors.primary).withOpacity(.1),
     100: HexColor(AppColors.primary).withOpacity(.2),
     200: HexColor(AppColors.primary).withOpacity(.3),
@@ -41,19 +43,9 @@ class MyApp extends StatelessWidget {
     700: HexColor(AppColors.primary).withOpacity(.8),
     800: HexColor(AppColors.primary).withOpacity(.9),
     900: HexColor(AppColors.primary).withOpacity(1),
-    // 50: Color.fromRGBO(136, 14, 79, .1),
-    // 100: Color.fromRGBO(136, 14, 79, .2),
-    // 200: Color.fromRGBO(136, 14, 79, .3),
-    // 300: Color.fromRGBO(136, 14, 79, .4),
-    // 400: Color.fromRGBO(136, 14, 79, .5),
-    // 500: Color.fromRGBO(136, 14, 79, .6),
-    // 600: Color.fromRGBO(136, 14, 79, .7),
-    // 700: Color.fromRGBO(136, 14, 79, .8),
-    // 800: Color.fromRGBO(136, 14, 79, .9),
-    // 900: Color.fromRGBO(136, 14, 79, 1),
   };
-  MaterialColor primeColor = MaterialColor(HexColor(AppColors.primary).value, color);
-  MaterialColor accentColor = MaterialColor(HexColor(AppColors.secondary).value, color);
+  final MaterialColor primeColor = MaterialColor(HexColor(AppColors.primary).value, color);
+  final MaterialColor accentColor = MaterialColor(HexColor(AppColors.secondary).value, color);
 
   // This widget is the root of your application.
   @override
@@ -63,6 +55,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       localizationsDelegates: const [
         AppLocalizations.delegate,
+        CountryLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
