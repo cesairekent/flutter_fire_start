@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 class ApiRoutes
 {
-  // Url de Base
+  // Base Url
   static const String baseUrl = kDebugMode? 'http://159.65.225.250:8000/api/' : 'http://159.65.225.250:8000/api/';
   static const String fileUrl = kDebugMode? 'http://159.65.225.250:8000' : 'http://159.65.225.250:8000';
 

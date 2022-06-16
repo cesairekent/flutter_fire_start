@@ -1,10 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fire_starter/src/view_models/sample_view_model.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SampleFormView extends StatefulWidget
 {
@@ -22,9 +21,9 @@ class _SampleFormPageState extends State<SampleFormView>
   List<String> genderOptions = ['Male', 'Female', 'Óther'];
 
   @override
-  Widget build(BuildContext context) {
-    var sampleForm = context.watch<SampleVM>();
-
+  Widget build(BuildContext context)
+  {
+    //var sampleForm = context.watch<SampleVM>();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -43,10 +42,10 @@ class _SampleFormPageState extends State<SampleFormView>
                   children: <Widget>[
                     FormBuilderFilterChip(
                       name: 'filter_chip',
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Select many options',
                       ),
-                      options: [
+                      options:const [
                         FormBuilderFieldOption(
                           value: 'Test',
                           child: Text('Test'),
@@ -71,10 +70,10 @@ class _SampleFormPageState extends State<SampleFormView>
                     ),
                     FormBuilderChoiceChip(
                       name: 'choice_chip',
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Select an option',
                       ),
-                      options: [
+                      options: const [
                         FormBuilderFieldOption(
                           value: 'Test',
                           child: Text('Test'),
@@ -101,10 +100,10 @@ class _SampleFormPageState extends State<SampleFormView>
                       name: 'date',
                       // onChanged: _onChanged,
                       inputType: InputType.time,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Appointment Time',
                       ),
-                      initialTime: TimeOfDay(hour: 8, minute: 0),
+                      initialTime: const TimeOfDay(hour: 8, minute: 0),
                       // initialValue: DateTime.now(),
                       // enabled: true,
                     ),
@@ -114,7 +113,7 @@ class _SampleFormPageState extends State<SampleFormView>
                       lastDate: DateTime(2030),
                       format: DateFormat('yyyy-MM-dd'),
                       onChanged: (value) {},
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Date Range',
                         helperText: 'Helper text',
                         hintText: 'Hint text',
@@ -132,7 +131,7 @@ class _SampleFormPageState extends State<SampleFormView>
                       divisions: 20,
                       activeColor: Colors.red,
                       inactiveColor: Colors.pink[100],
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Number of things',
                       ),
                     ),
@@ -141,7 +140,7 @@ class _SampleFormPageState extends State<SampleFormView>
                       initialValue: false,
                       onChanged: (value) {},
                       title: RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           children: [
                             TextSpan(
                               text: 'I have read and agree to the ',
@@ -163,7 +162,7 @@ class _SampleFormPageState extends State<SampleFormView>
                     ),
                     FormBuilderTextField(
                       name: 'age',
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText:
                             'This value is passed along to the [Text.maxLines] attribute of the [Text] widget used to display the hint text.',
                       ),
@@ -178,18 +177,18 @@ class _SampleFormPageState extends State<SampleFormView>
                     ),
                     FormBuilderDropdown(
                       name: 'gender',
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Gender',
                       ),
                       // initialValue: 'Male',
                       allowClear: true,
-                      hint: Text('Select Gender'),
+                      hint: const Text('Select Gender'),
                       validator: FormBuilderValidators.compose(
                           [FormBuilderValidators.required(context)]),
                       items: genderOptions
                           .map((gender) => DropdownMenuItem(
                                 value: gender,
-                                child: Text('$gender'),
+                                child: Text(gender),
                               ))
                           .toList(),
                     ),
@@ -198,31 +197,35 @@ class _SampleFormPageState extends State<SampleFormView>
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: <Widget>[
                   Expanded(
                     child: MaterialButton(
                       color: Theme.of(context).colorScheme.secondary,
-                      child: Text(
+                      child: const Text(
                         "Submit",
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {
                         _formKey.currentState!.save();
                         if (_formKey.currentState!.validate()) {
-                          print(_formKey.currentState?.value);
+                          if (kDebugMode) {
+                            print(_formKey.currentState?.value);
+                          }
                         } else {
-                          print("validation failed");
+                          if (kDebugMode) {
+                            print("validation failed");
+                          }
                         }
                       },
                     ),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Expanded(
                     child: MaterialButton(
                       color: Theme.of(context).colorScheme.secondary,
-                      child: Text(
+                      child: const Text(
                         "Reset",
                         style: TextStyle(color: Colors.white),
                       ),

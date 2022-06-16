@@ -1,18 +1,17 @@
+import 'package:country_code_picker/country_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fire_starter/src/core/app_configs/app_colors.dart';
 import 'package:flutter_fire_starter/src/core/l10n/locale_provider.dart';
-import 'package:flutter_fire_starter/src/view_models/sample_view_model.dart';
-import 'package:flutter_fire_starter/src/views/sample_view.dart';
+import 'package:flutter_fire_starter/src/view_models/samples/sample_view_model.dart';
+import 'package:flutter_fire_starter/src/views/samples/sample_home_view.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  final prefs = await SharedPreferences.getInstance();
-  String lang = prefs.getString('language') ?? 'fr';
 
   runApp(
     /// Providers are above [MyApp] instead of inside it, so that tests
@@ -22,27 +21,41 @@ void main() async {
         ChangeNotifierProvider(create: (_) => SampleVM()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
-      child: MyApp(language: lang),
+      child: MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key,required this.language}) : super(key: key);
-  // This widget is the root of your application.
+  MyApp({
+    Key? key,
+  }) : super(key: key);
 
-  final String language;
-
-  @override
-  Widget build(BuildContext context)
+  static Map<int, Color> color =
   {
-    final provider = Provider.of<LocaleProvider>(context);
-    //provider.localeLang = Locale(language);
+    50: HexColor(AppColors.primary).withOpacity(.1),
+    100: HexColor(AppColors.primary).withOpacity(.2),
+    200: HexColor(AppColors.primary).withOpacity(.3),
+    300: HexColor(AppColors.primary).withOpacity(.4),
+    400: HexColor(AppColors.primary).withOpacity(.5),
+    500: HexColor(AppColors.primary).withOpacity(.6),
+    600: HexColor(AppColors.primary).withOpacity(.7),
+    700: HexColor(AppColors.primary).withOpacity(.8),
+    800: HexColor(AppColors.primary).withOpacity(.9),
+    900: HexColor(AppColors.primary).withOpacity(1),
+  };
+  final MaterialColor primeColor = MaterialColor(HexColor(AppColors.primary).value, color);
+  final MaterialColor accentColor = MaterialColor(HexColor(AppColors.secondary).value, color);
 
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    final provider = Provider.of<LocaleProvider>(context);
     return MaterialApp(
       title: 'Flutter Demo',
       localizationsDelegates: const [
         AppLocalizations.delegate,
+        CountryLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -58,18 +71,18 @@ class MyApp extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          primarySwatch: Colors.blueGrey,
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+        primarySwatch: primeColor,
       ),
-      home: const SampleView(title: 'Flutter Demo Home Page'),
+      home: const SampleHomeView(),
     );
   }
 }
