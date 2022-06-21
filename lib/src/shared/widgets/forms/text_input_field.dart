@@ -15,6 +15,7 @@ class TextInputField extends StatefulWidget {
     required this.onSaved,
     this.validators,
     this.onChanged,
+    this.autovalidateMode = AutovalidateMode.onUserInteraction,
   }) : super(key: key);
 
   final String name;
@@ -25,6 +26,7 @@ class TextInputField extends StatefulWidget {
   final FormFieldSetter<String> onSaved;
   final String? Function(String?)? validators;
   final FormFieldSetter<String>? onChanged;
+  final AutovalidateMode autovalidateMode;
 
   @override
   State<TextInputField> createState() => _TextInputFieldState();
@@ -39,6 +41,7 @@ class _TextInputFieldState extends State<TextInputField> {
       enabled: widget.isEnabled,
       validator: widget.validators,
       onChanged: widget.onChanged,
+      autovalidateMode: widget.autovalidateMode,
       decoration: InputDecoration(
         filled: true,
         focusColor: HexColor(AppColors.primary),

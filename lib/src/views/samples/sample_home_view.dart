@@ -70,7 +70,7 @@ class _SampleHomeViewState extends State<SampleHomeView> {
                             labelText: 'Text Input',
                             hintText: 'hintText',
                             validators: FormBuilderValidators.compose([
-                              FormBuilderValidators.required(context,
+                              FormBuilderValidators.required(
                                   errorText: 'This field is required'),
                             ]),
                             onSaved: (value) {},
@@ -96,7 +96,7 @@ class _SampleHomeViewState extends State<SampleHomeView> {
                             initialFormValue: '',
                             isEnabled: false,
                             validators: FormBuilderValidators.compose([
-                              FormBuilderValidators.required(context,
+                              FormBuilderValidators.required(
                                   errorText: 'This field is required'),
                             ]),
                           ),
@@ -120,7 +120,7 @@ class _SampleHomeViewState extends State<SampleHomeView> {
                             onSaved: (value) {},
                             onChanged: (value) {},
                             validators: FormBuilderValidators.compose([
-                              FormBuilderValidators.required(context, errorText: 'This field is required'),
+                              FormBuilderValidators.required(errorText: 'This field is required'),
                               //FormBuilderValidators.min(context, 20, errorText: 'This field must be at least 20 characters long'),
                             ]),
                           ),

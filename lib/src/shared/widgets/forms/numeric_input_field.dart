@@ -6,8 +6,6 @@ import 'package:hexcolor/hexcolor.dart';
 
 class NumericInputField extends StatefulWidget
 {
-  //TextInputField({Key? key}) : super(key: key);
-
   const NumericInputField({
     Key? key,
     required this.name,
@@ -17,7 +15,7 @@ class NumericInputField extends StatefulWidget
     this.initialFormValue = '',
     required this.onSaved,
     required this.onChanged,
-    //required this.validator,
+    this.autovalidateMode = AutovalidateMode.onUserInteraction,
   }) : super(key: key);
 
   final String name;
@@ -27,7 +25,7 @@ class NumericInputField extends StatefulWidget
   final String initialFormValue;
   final FormFieldSetter<String> onSaved;
   final FormFieldSetter<String> onChanged;
-  //final FormFieldValidator<String> validator;
+  final AutovalidateMode autovalidateMode;
 
   @override
   State<NumericInputField> createState() => _NumericInputFieldState();
@@ -42,6 +40,7 @@ class _NumericInputFieldState extends State<NumericInputField> {
       readOnly: widget.isReadOnly,
       keyboardType: TextInputType.number,
       onChanged: widget.onChanged,
+      autovalidateMode: widget.autovalidateMode,
       decoration: InputDecoration(
         filled: true,
         focusColor: HexColor(AppColors.primary),

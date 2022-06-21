@@ -15,7 +15,7 @@ class DropdownInputField extends StatefulWidget {
     required this.onSaved,
     required this.onChanged,
     required this.items,
-    //required this.validator,
+    this.autovalidateMode = AutovalidateMode.onUserInteraction,
   }) : super(key: key);
 
   final String name;
@@ -25,7 +25,7 @@ class DropdownInputField extends StatefulWidget {
   final FormFieldSetter<String> onSaved;
   final Function(String?) onChanged;
   final List<String> items;
-  //final FormFieldValidator<String> validator;
+  final AutovalidateMode autovalidateMode;
 
   @override
   State<DropdownInputField> createState() => _DropdownInputFieldState();
@@ -40,7 +40,7 @@ class _DropdownInputFieldState extends State<DropdownInputField> {
       allowClear: true,
       //hint: Text(widget.hintText),
       validator: FormBuilderValidators.compose(
-          [FormBuilderValidators.required(context)]),
+          [FormBuilderValidators.required()]),
       onChanged: widget.onChanged,
       items: widget.items
           .map(
@@ -57,6 +57,7 @@ class _DropdownInputFieldState extends State<DropdownInputField> {
             ),
           )
           .toList(),
+      autovalidateMode: widget.autovalidateMode,
       decoration: InputDecoration(
         filled: true,
         focusColor: HexColor(AppColors.primary),

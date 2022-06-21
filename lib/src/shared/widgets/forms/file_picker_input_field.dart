@@ -1,4 +1,3 @@
-import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fire_starter/src/core/app_configs/app_colors.dart';
 import 'package:flutter_fire_starter/src/core/app_configs/app_font_size.dart';
@@ -44,7 +43,7 @@ class _FilePickerInputFieldState extends State<FilePickerInputField> {
       selector: Row(
         children: <Widget>[
           Icon(
-            CommunityMaterialIcons.file_upload,
+            Icons.file_upload,
             color: HexColor(
               AppColors.gray,
             ),

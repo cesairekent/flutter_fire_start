@@ -65,12 +65,12 @@ class Interceptors extends Interceptor {
           if (value.statusCode == 201) {
             //get new tokens ...
             if (kDebugMode) {
-              print("access token" + token);
-              print("refresh token" + refreshToken);
+              print("access token$token");
+              print("refresh token$refreshToken");
             }
 
             //set bearer
-            err.requestOptions.headers["Authorization"] = "Bearer " + token;
+            err.requestOptions.headers["Authorization"] = "Bearer $token";
             //create request with new access token
             final opts = Options(
                 method: err.requestOptions.method,

@@ -48,19 +48,19 @@ class _SamplePageState extends State<SampleView> {
                     },
                   ),
                   MaterialButton(
-                    child: const Text('Add'),
                     color: Colors.green,
                     onPressed: () {
                       //var countProvider = Provider.of<SampleVM>(context, listen: true);
                       sample.updateListNumber(sample.count);
                     },
+                    child: const Text('Add'),
                   ),
                   MaterialButton(
-                    child: const Text('Clear'),
                     color: Colors.red,
                     onPressed: () {
                       sample.clearListNumber();
                     },
+                    child: const Text('Clear'),
                   ),
                   ElevatedButton(
                     child: const Text('En'),

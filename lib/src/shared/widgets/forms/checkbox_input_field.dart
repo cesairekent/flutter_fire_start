@@ -11,12 +11,14 @@ class CheckboxInputField extends StatefulWidget {
     required this.labelText,
     this.validators,
     required this.onChanged,
+    this.autovalidateMode = AutovalidateMode.onUserInteraction,
   }) : super(key: key);
 
   final String name;
   final String labelText;
   final String? Function(bool?)? validators;
   final Function(bool?) onChanged;
+  final AutovalidateMode autovalidateMode;
 
   @override
   State<CheckboxInputField> createState() => _CheckboxInputFieldState();
@@ -38,6 +40,7 @@ class _CheckboxInputFieldState extends State<CheckboxInputField> {
         ),
       ),
       validator: widget.validators,
+      autovalidateMode: widget.autovalidateMode,
     );
   }
 }

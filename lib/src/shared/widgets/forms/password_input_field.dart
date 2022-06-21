@@ -13,8 +13,7 @@ class PasswordInputField extends StatefulWidget {
     this.initialFormValue = '',
     required this.onSaved,
     this.validators,
-    //required this.onChanged,
-    //required this.validator,
+    this.autovalidateMode = AutovalidateMode.onUserInteraction,
   }) : super(key: key);
 
   final String name;
@@ -23,8 +22,7 @@ class PasswordInputField extends StatefulWidget {
   final String initialFormValue;
   final FormFieldSetter<String> onSaved;
   final String? Function(String?)? validators;
-  //final FormFieldSetter<String> onChanged;
-  //final FormFieldValidator<String> validator;
+  final AutovalidateMode autovalidateMode;
 
   @override
   State<PasswordInputField> createState() => _PasswordInputFieldState();
@@ -41,6 +39,7 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
       obscureText: _obscureText,
       obscuringCharacter: '*',
       validator: widget.validators,
+      autovalidateMode: widget.autovalidateMode,
       decoration: InputDecoration(
         filled: true,
         focusColor: HexColor(AppColors.primary),

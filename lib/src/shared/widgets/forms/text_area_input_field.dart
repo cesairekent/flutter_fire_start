@@ -5,7 +5,6 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class TextAreaInputField extends StatefulWidget {
-  //TextInputField({Key? key}) : super(key: key);
 
   const TextAreaInputField({
     Key? key,
@@ -17,8 +16,7 @@ class TextAreaInputField extends StatefulWidget {
     this.minLines = 4,
     this.maxLines = 6,
     required this.onSaved,
-    //required this.onChanged,
-    //required this.validator,
+    this.autovalidateMode = AutovalidateMode.onUserInteraction,
   }) : super(key: key);
 
   final String name;
@@ -29,8 +27,7 @@ class TextAreaInputField extends StatefulWidget {
   final int minLines;
   final int maxLines;
   final FormFieldSetter<String> onSaved;
-  //final FormFieldSetter<String> onChanged;
-  //final FormFieldValidator<String> validator;
+  final AutovalidateMode autovalidateMode;
 
   @override
   State<TextAreaInputField> createState() => _TextAreaInputFieldState();
@@ -48,6 +45,7 @@ class _TextAreaInputFieldState extends State<TextAreaInputField> {
       textAlign: TextAlign.start,
       textAlignVertical: TextAlignVertical.top,
       keyboardType: TextInputType.multiline,
+      autovalidateMode: widget.autovalidateMode,
       decoration: InputDecoration(
         filled: true,
         floatingLabelBehavior: FloatingLabelBehavior.always,
