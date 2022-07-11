@@ -98,6 +98,7 @@ class _CountryDropDownFieldInputState extends State<CountryDropDownInputField> {
             ),
             errorText: widget.validators != null ? field.errorText : null,
           ),
+
           child: CountryCodePicker(
             padding: EdgeInsets.zero,
             onChanged: (value) => field.didChange(value.name),
@@ -179,7 +180,6 @@ class _CountryDropDownFieldInputState extends State<CountryDropDownInputField> {
           ),
         );
       },
-      //decoration: ,
     );
   }
 }
