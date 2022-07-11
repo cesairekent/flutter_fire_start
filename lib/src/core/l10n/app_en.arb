@@ -8,5 +8,8 @@
     "sampleForm": "Sample Form",
     "sampleRefreshList": "Sample Refresh List",
 
-    "btn_ok": "OK"
+    "btn_ok": "OK",
+
+    "form_error_password_confirm_match": "",
+    "form_error_password_contraint": ""
 }
