@@ -30,7 +30,7 @@ class CountryDropDownInputField extends StatefulWidget {
   final int maxLines;
 
   @override
-  _CountryDropDownFieldInputState createState() =>
+  State<CountryDropDownInputField> createState() =>
       _CountryDropDownFieldInputState();
 }
 
@@ -44,6 +44,61 @@ class _CountryDropDownFieldInputState extends State<CountryDropDownInputField> {
       builder: (FormFieldState<dynamic> field)
       {
         return InputDecorator(
+          decoration: InputDecoration(
+            filled: true,
+            enabled: widget.isEnabled,
+            focusColor: HexColor(AppColors.primary),
+            fillColor: HexColor(AppColors.white),
+            label: Text(
+              widget.labelText,
+              style: TextStyle(
+                color: HexColor(AppColors.gray),
+                fontSize: AppFontSize.h6,
+              ),
+            ),
+            labelStyle: TextStyle(
+              color: HexColor(AppColors.gray),
+              fontSize: AppFontSize.h6,
+            ),
+            hintText: widget.hintText,
+            hintStyle: TextStyle(
+              color: HexColor(AppColors.gray),
+              fontSize: AppFontSize.h6,
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(
+                color: HexColor(AppColors.gray),
+              ),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(
+                color: HexColor(AppColors.lightGray),
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(
+                color: HexColor(AppColors.primary),
+              ),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(
+                color: HexColor(AppColors.errorColor),
+              ),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(
+                color: HexColor(AppColors.gray),
+              ),
+            ),
+            errorText: widget.validators != null ? field.errorText : null,
+          ),
+
           child: CountryCodePicker(
             padding: EdgeInsets.zero,
             onChanged: (value) => field.didChange(value.name),
@@ -123,63 +178,8 @@ class _CountryDropDownFieldInputState extends State<CountryDropDownInputField> {
               ),
             ),
           ),
-          decoration: InputDecoration(
-            filled: true,
-            enabled: widget.isEnabled,
-            focusColor: HexColor(AppColors.primary),
-            fillColor: HexColor(AppColors.white),
-            label: Text(
-              widget.labelText,
-              style: TextStyle(
-                color: HexColor(AppColors.gray),
-                fontSize: AppFontSize.h6,
-              ),
-            ),
-            labelStyle: TextStyle(
-              color: HexColor(AppColors.gray),
-              fontSize: AppFontSize.h6,
-            ),
-            hintText: widget.hintText,
-            hintStyle: TextStyle(
-              color: HexColor(AppColors.gray),
-              fontSize: AppFontSize.h6,
-            ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(
-                color: HexColor(AppColors.gray),
-              ),
-            ),
-            disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(
-                color: HexColor(AppColors.lightGray),
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(
-                color: HexColor(AppColors.primary),
-              ),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(
-                color: HexColor(AppColors.errorColor),
-              ),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(
-                color: HexColor(AppColors.gray),
-              ),
-            ),
-            errorText: widget.validators != null ? field.errorText : null,
-          ),
         );
       },
-      //decoration: ,
     );
   }
 }

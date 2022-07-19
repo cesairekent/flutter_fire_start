@@ -6,5 +6,10 @@
     "gotoForm": "Aller à la page formulaire",
     "gotoList": "Aller à la page liste",
     "sampleForm": "Formulaire d'exemple",
-    "sampleRefreshList": "Exemple Liste Rafraîchir"
+    "sampleRefreshList": "Exemple Liste Rafraîchir",
+
+    "btn_ok": "OK",
+
+    "form_error_password_confirm_match": "",
+    "form_error_password_contraint": ""
 }

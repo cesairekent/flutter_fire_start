@@ -45,24 +45,24 @@ class _SampleFormPageState extends State<SampleFormView>
                       decoration: const InputDecoration(
                         labelText: 'Select many options',
                       ),
-                      options:const [
-                        FormBuilderFieldOption(
+                      options: const [
+                        FormBuilderChipOption(
                           value: 'Test',
                           child: Text('Test'),
                         ),
-                        FormBuilderFieldOption(
+                        FormBuilderChipOption(
                           value: 'Test 1',
                           child: Text('Test 1'),
                         ),
-                        FormBuilderFieldOption(
+                        FormBuilderChipOption(
                           value: 'Test 2',
                           child: Text('Test 2'),
                         ),
-                        FormBuilderFieldOption(
+                        FormBuilderChipOption(
                           value: 'Test 3',
                           child: Text('Test 3'),
                         ),
-                        FormBuilderFieldOption(
+                        FormBuilderChipOption(
                           value: 'Test 4',
                           child: Text('Test 4'),
                         ),
@@ -74,23 +74,23 @@ class _SampleFormPageState extends State<SampleFormView>
                         labelText: 'Select an option',
                       ),
                       options: const [
-                        FormBuilderFieldOption(
+                        FormBuilderChipOption(
                           value: 'Test',
                           child: Text('Test'),
                         ),
-                        FormBuilderFieldOption(
+                        FormBuilderChipOption(
                           value: 'Test 1',
                           child: Text('Test 1'),
                         ),
-                        FormBuilderFieldOption(
+                        FormBuilderChipOption(
                           value: 'Test 2',
                           child: Text('Test 2'),
                         ),
-                        FormBuilderFieldOption(
+                        FormBuilderChipOption(
                           value: 'Test 3',
                           child: Text('Test 3'),
                         ),
-                        FormBuilderFieldOption(
+                        FormBuilderChipOption(
                           value: 'Test 4',
                           child: Text('Test 4'),
                         ),
@@ -122,7 +122,7 @@ class _SampleFormPageState extends State<SampleFormView>
                     FormBuilderSlider(
                       name: 'slider',
                       validator: FormBuilderValidators.compose([
-                        FormBuilderValidators.min(context, 6),
+                        FormBuilderValidators.min(6),
                       ]),
                       onChanged: (value) {},
                       min: 0.0,
@@ -154,7 +154,6 @@ class _SampleFormPageState extends State<SampleFormView>
                         ),
                       ),
                       validator: FormBuilderValidators.equal(
-                        context,
                         true,
                         errorText:
                             'You must accept terms and conditions to continue',
@@ -169,9 +168,9 @@ class _SampleFormPageState extends State<SampleFormView>
                       onChanged: (value) {},
                       // valueTransformer: (text) => num.tryParse(text),
                       validator: FormBuilderValidators.compose([
-                        FormBuilderValidators.required(context),
-                        FormBuilderValidators.numeric(context),
-                        FormBuilderValidators.max(context, 70),
+                        FormBuilderValidators.required(),
+                        FormBuilderValidators.numeric(),
+                        FormBuilderValidators.max(70),
                       ]),
                       keyboardType: TextInputType.number,
                     ),
@@ -184,7 +183,7 @@ class _SampleFormPageState extends State<SampleFormView>
                       allowClear: true,
                       hint: const Text('Select Gender'),
                       validator: FormBuilderValidators.compose(
-                          [FormBuilderValidators.required(context)]),
+                          [FormBuilderValidators.required()]),
                       items: genderOptions
                           .map((gender) => DropdownMenuItem(
                                 value: gender,

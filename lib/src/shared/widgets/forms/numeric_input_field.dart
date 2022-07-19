@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fire_starter/src/core/app_configs/app_colors.dart';
-import 'package:flutter_fire_starter/src/core/app_configs/app_font_size.dart';
+import 'package:flutter_fire_starter/src/core/app_configs/decoration.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class NumericInputField extends StatefulWidget
 {
-  //TextInputField({Key? key}) : super(key: key);
-
   const NumericInputField({
     Key? key,
     required this.name,
@@ -17,7 +13,7 @@ class NumericInputField extends StatefulWidget
     this.initialFormValue = '',
     required this.onSaved,
     required this.onChanged,
-    //required this.validator,
+    this.autovalidateMode = AutovalidateMode.onUserInteraction,
   }) : super(key: key);
 
   final String name;
@@ -27,13 +23,14 @@ class NumericInputField extends StatefulWidget
   final String initialFormValue;
   final FormFieldSetter<String> onSaved;
   final FormFieldSetter<String> onChanged;
-  //final FormFieldValidator<String> validator;
+  final AutovalidateMode autovalidateMode;
 
   @override
   State<NumericInputField> createState() => _NumericInputFieldState();
 }
 
-class _NumericInputFieldState extends State<NumericInputField> {
+class _NumericInputFieldState extends State<NumericInputField>
+{
   @override
   Widget build(BuildContext context) {
     return FormBuilderTextField(
@@ -42,57 +39,8 @@ class _NumericInputFieldState extends State<NumericInputField> {
       readOnly: widget.isReadOnly,
       keyboardType: TextInputType.number,
       onChanged: widget.onChanged,
-      decoration: InputDecoration(
-        filled: true,
-        focusColor: HexColor(AppColors.primary),
-        fillColor: HexColor(AppColors.white),
-        label: Text(
-          widget.labelText,
-          style: TextStyle(
-            color: HexColor(AppColors.gray),
-            fontSize: AppFontSize.h6,
-          ),
-        ),
-        labelStyle: TextStyle(
-          color: HexColor(AppColors.gray),
-          fontSize: AppFontSize.h6,
-        ),
-        hintText: widget.hintText,
-        hintStyle: TextStyle(
-          color: HexColor(AppColors.gray),
-          fontSize: AppFontSize.h6,
-        ),
-        contentPadding: const EdgeInsets.all(10),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(
-            color: HexColor(AppColors.gray),
-          ),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(
-            color: HexColor(AppColors.lightGray),
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(
-            color: HexColor(AppColors.primary),
-          ),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(
-            color: HexColor(AppColors.errorColor),
-          ),
-        ),border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(
-            color: HexColor(AppColors.gray),
-          ),
-        ),
-      ),
+      autovalidateMode: widget.autovalidateMode,
+      decoration: AppDecoration.inputDecoartion(widget.labelText, widget.hintText),
     );
   }
 }

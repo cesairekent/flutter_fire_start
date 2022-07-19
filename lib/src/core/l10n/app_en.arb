@@ -6,5 +6,10 @@
     "gotoForm": "Go to form page",
     "gotoList": "Go to refresh list page",
     "sampleForm": "Sample Form",
-    "sampleRefreshList": "Sample Refresh List"
+    "sampleRefreshList": "Sample Refresh List",
+
+    "btn_ok": "OK",
+
+    "form_error_password_confirm_match": "",
+    "form_error_password_contraint": ""
 }
