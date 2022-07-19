@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fire_starter/src/core/app_configs/app_colors.dart';
-import 'package:flutter_fire_starter/src/core/app_configs/app_font_size.dart';
 import 'package:flutter_fire_starter/src/core/app_configs/decoration.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class TextAreaInputField extends StatefulWidget {
 

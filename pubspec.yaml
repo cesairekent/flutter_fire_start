@@ -44,6 +44,7 @@ dependencies:
   flutter_form_builder: ^7.1.1
   form_builder_validators: ^8.1.1
   pull_to_refresh: ^2.0.0
+  pull_to_refresh_flutter3: ^2.0.1
   auto_size_text: ^3.0.0
   modal_bottom_sheet: ^2.0.1
   form_builder_file_picker: ^2.1.0
