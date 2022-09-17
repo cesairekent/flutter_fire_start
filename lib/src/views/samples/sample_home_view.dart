@@ -11,6 +11,7 @@ import 'package:flutter_fire_starter/src/shared/widgets/forms/text_input_field.d
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class SampleHomeView extends StatefulWidget {
   const SampleHomeView({Key? key}) : super(key: key);
@@ -22,6 +23,8 @@ class SampleHomeView extends StatefulWidget {
 class _SampleHomeViewState extends State<SampleHomeView> {
   final GlobalKey<FormBuilderState> _sampleFormKey =
       GlobalKey<FormBuilderState>();
+
+  String _appVersion = "";
 
   List<BottomNavigationBarItem> navItems = [
     const BottomNavigationBarItem(
@@ -45,6 +48,14 @@ class _SampleHomeViewState extends State<SampleHomeView> {
   ];
 
   @override
+  void didChangeDependencies() async {
+    PackageInfo pkgInfos = await PackageInfo.fromPlatform();
+    _appVersion = "V.${pkgInfos.version} build ${pkgInfos.buildNumber}";
+    setState(() {});
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
@@ -62,6 +73,7 @@ class _SampleHomeViewState extends State<SampleHomeView> {
                       key: _sampleFormKey,
                       child: Column(
                         children: <Widget>[
+                          Text(_appVersion),
                           const SizedBox(
                             height: 20,
                           ),
@@ -120,7 +132,8 @@ class _SampleHomeViewState extends State<SampleHomeView> {
                             onSaved: (value) {},
                             onChanged: (value) {},
                             validators: FormBuilderValidators.compose([
-                              FormBuilderValidators.required(errorText: 'This field is required'),
+                              FormBuilderValidators.required(
+                                  errorText: 'This field is required'),
                               //FormBuilderValidators.min(context, 20, errorText: 'This field must be at least 20 characters long'),
                             ]),
                           ),
