@@ -10,7 +10,7 @@ import 'package:flutter_fire_starter/src/core/interceptors/api_exception.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Interceptors extends Interceptor {
+class ApiInterceptors extends Interceptor {
   String token = '';
   String refreshToken = '';
   final ApiException exception = const ApiException();

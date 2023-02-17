@@ -2,6 +2,7 @@ import 'package:country_code_picker/country_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fire_starter/src/core/app_configs/app_colors.dart';
 import 'package:flutter_fire_starter/src/core/l10n/locale_provider.dart';
+import 'package:flutter_fire_starter/src/view_models/base_view_model.dart';
 import 'package:flutter_fire_starter/src/view_models/samples/sample_view_model.dart';
 import 'package:flutter_fire_starter/src/views/samples/sample_home_view.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -18,6 +19,7 @@ void main() async {
     /// can use [MyApp] while mocking the providers
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => BaseVM()),
         ChangeNotifierProvider(create: (_) => SampleVM()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
