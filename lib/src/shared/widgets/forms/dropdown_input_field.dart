@@ -38,7 +38,7 @@ class _DropdownInputFieldState extends State<DropdownInputField> {
     return FormBuilderDropdown(
       name: widget.name,
       // initialValue: 'Male',
-      allowClear: true,
+      // allowClear: true,
       //hint: Text(widget.hintText),
       validator: FormBuilderValidators.compose(
           [FormBuilderValidators.required()]),

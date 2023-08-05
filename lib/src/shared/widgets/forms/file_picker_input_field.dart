@@ -41,25 +41,32 @@ class _FilePickerInputFieldState extends State<FilePickerInputField> {
       maxFiles: null,
       previewImages: true,
       onChanged: widget.onChanged, //(val) => print(val),
-      selector: Row(
-        children: <Widget>[
-          Icon(
-            Icons.file_upload,
-            color: HexColor(
-              AppColors.gray,
-            ),
+
+      typeSelectors: [
+        TypeSelector(
+          type: FileType.any,
+          selector: Row(
+            children: <Widget>[
+              Icon(
+                Icons.file_upload,
+                color: HexColor(
+                  AppColors.gray,
+                ),
+              ),
+              Text(
+                widget.uploadText,
+                style: TextStyle(
+                  color: HexColor(AppColors.gray),
+                  fontSize: AppFontSize.h6,
+                ),
+              ),
+            ],
           ),
-          Text(
-            widget.uploadText,
-            style: TextStyle(
-              color: HexColor(AppColors.gray),
-              fontSize: AppFontSize.h6,
-            ),
-          ),
-        ],
-      ),
+        )
+      ],
       onFileLoading: widget.onFileLoading,
-      decoration: AppDecoration.inputDecoartion(widget.labelText, widget.hintText),
+      decoration:
+          AppDecoration.inputDecoartion(widget.labelText, widget.hintText),
     );
   }
 }

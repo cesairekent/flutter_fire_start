@@ -10,7 +10,7 @@ import 'package:flutter_fire_starter/src/core/interceptors/api_exception.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Interceptors extends Interceptor {
+class ApiInterceptors extends Interceptor {
   String token = '';
   String refreshToken = '';
   final ApiException exception = const ApiException();
@@ -18,8 +18,8 @@ class Interceptors extends Interceptor {
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl: ApiRoutes.baseUrl,
-      connectTimeout: 5000,
-      receiveTimeout: 3000,
+      connectTimeout: const Duration(seconds: 5000),
+      receiveTimeout: const Duration(seconds: 3000),
     ),
   );
 
