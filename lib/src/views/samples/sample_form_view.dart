@@ -37,7 +37,7 @@ class _SampleFormPageState extends State<SampleFormView>
               child: FormBuilder(
                 key: _formKey,
                 autovalidateMode: AutovalidateMode.always,
-                autoFocusOnValidationFailure: true,
+                //autoFocusOnValidationFailure: true,
                 child: Column(
                   children: <Widget>[
                     FormBuilderFilterChip(
@@ -180,8 +180,8 @@ class _SampleFormPageState extends State<SampleFormView>
                         labelText: 'Gender',
                       ),
                       // initialValue: 'Male',
-                      allowClear: true,
-                      hint: const Text('Select Gender'),
+                      // allowClear: true,
+                      // hint: const Text('Select Gender'),
                       validator: FormBuilderValidators.compose(
                           [FormBuilderValidators.required()]),
                       items: genderOptions

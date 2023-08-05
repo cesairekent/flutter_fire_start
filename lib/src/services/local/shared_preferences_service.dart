@@ -26,7 +26,7 @@ class SharedPrefenrencesService {
 
     if (prefs.containsKey(key)) return;
 
-    var result;
+    dynamic result;
 
     if (returnType is bool) {
       result = prefs.getBool(key);

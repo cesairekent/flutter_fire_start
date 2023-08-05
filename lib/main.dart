@@ -1,10 +1,13 @@
-import 'package:country_code_picker/country_localizations.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fire_starter/src/core/app_configs/app_colors.dart';
+import 'package:flutter_fire_starter/src/core/app_configs/app_routes.dart';
 import 'package:flutter_fire_starter/src/core/l10n/locale_provider.dart';
 import 'package:flutter_fire_starter/src/view_models/base_view_model.dart';
 import 'package:flutter_fire_starter/src/view_models/samples/sample_view_model.dart';
+import 'package:flutter_fire_starter/src/views/samples/sample_form_view.dart';
 import 'package:flutter_fire_starter/src/views/samples/sample_home_view.dart';
+import 'package:flutter_fire_starter/src/views/samples/sample_list_refresh.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -33,8 +36,7 @@ class MyApp extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  static Map<int, Color> color =
-  {
+  static Map<int, Color> color = {
     50: HexColor(AppColors.primary).withOpacity(.1),
     100: HexColor(AppColors.primary).withOpacity(.2),
     200: HexColor(AppColors.primary).withOpacity(.3),
@@ -46,8 +48,10 @@ class MyApp extends StatelessWidget {
     800: HexColor(AppColors.primary).withOpacity(.9),
     900: HexColor(AppColors.primary).withOpacity(1),
   };
-  final MaterialColor primeColor = MaterialColor(HexColor(AppColors.primary).value, color);
-  final MaterialColor accentColor = MaterialColor(HexColor(AppColors.secondary).value, color);
+  final MaterialColor primeColor =
+      MaterialColor(HexColor(AppColors.primary).value, color);
+  final MaterialColor accentColor =
+      MaterialColor(HexColor(AppColors.secondary).value, color);
 
   // This widget is the root of your application.
   @override
@@ -73,18 +77,15 @@ class MyApp extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: primeColor,
       ),
-      home: const SampleHomeView(),
+      initialRoute: '/',
+      routes: {
+        AppRoutes.root: (context) => const SampleHomeView(),
+        AppRoutes.sampleFormView: (context) => SampleFormView(title: AppLocalizations.of(context)!.sampleForm,),
+        AppRoutes.sampleRefreshListView: (context) => SampleRefreshListView(title: AppLocalizations.of(context)!.sampleRefreshList,),
+      },
+      //home: const SampleHomeView(),
     );
   }
 }

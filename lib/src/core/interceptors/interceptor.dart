@@ -18,8 +18,8 @@ class ApiInterceptors extends Interceptor {
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl: ApiRoutes.baseUrl,
-      connectTimeout: 5000,
-      receiveTimeout: 3000,
+      connectTimeout: const Duration(seconds: 5000),
+      receiveTimeout: const Duration(seconds: 3000),
     ),
   );
 

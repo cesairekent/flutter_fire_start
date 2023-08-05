@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fire_starter/src/core/app_configs/app_routes.dart';
 import 'package:flutter_fire_starter/src/core/l10n/locale_provider.dart';
 import 'package:flutter_fire_starter/src/view_models/samples/sample_view_model.dart';
-import 'package:flutter_fire_starter/src/views/samples/sample_form_view.dart';
-import 'package:flutter_fire_starter/src/views/samples/sample_list_refresh.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -93,33 +92,16 @@ class _SamplePageState extends State<SampleView> {
               ),
               ElevatedButton(
                 child: Text(AppLocalizations.of(context)!.gotoForm,
-                    style: Theme.of(context).textTheme.bodyText2),
+                    style: Theme.of(context).textTheme.bodyMedium),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SampleFormView(
-                            title: AppLocalizations.of(context)!.sampleForm);
-                      },
-                    ),
-                  );
+                  Navigator.pushNamed(context, AppRoutes.sampleFormView);
                 },
               ),
               ElevatedButton(
                 child: Text(AppLocalizations.of(context)!.gotoList,
-                    style: Theme.of(context).textTheme.bodyText2),
+                    style: Theme.of(context).textTheme.bodyMedium),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SampleRefreshListView(
-                            title: AppLocalizations.of(context)!
-                                .sampleRefreshList);
-                      },
-                    ),
-                  );
+                  Navigator.pushNamed(context, AppRoutes.sampleRefreshListView);
                 },
               ),
             ],
