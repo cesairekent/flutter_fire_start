@@ -1,0 +1,1 @@
+In this folder, add your sharing components (widget) and some of the functionality you need to customise your views.
