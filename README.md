@@ -1,6 +1,17 @@
-# flutter_fire_start
+![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
 
-Flutter Template Project with Provider & MVVM architeture, include many features:
+![](assets/images/icons/appIcon.png)
+
+## Getting Started with FFS (flutter fire start)
+
+![](https://github.com/cesairekent/flutter_fire_start/blob/69826a464285e57488f0fca118f6003bd5d942a2/assets/images/icons/appIcon.png)
+
+**Warning !!! Before you start, you need to know the basics of flutter and dart.
+please check de official documentation https://docs.flutter.dev/**
+
+If it's okay, let's start ...
+
+That's a flutter template project with Provider & MVVM architeture, include many features:
 
 - Native flutter i18n using additional package https://pub.dev/packages/intl
 - Http request & interceptor with Dio package https://pub.dev/packages/dio
@@ -8,17 +19,5 @@ Flutter Template Project with Provider & MVVM architeture, include many features
 - Form Builder & validators using https://pub.dev/packages/flutter_form_builder, https://pub.dev/packages/form_builder_validators
 - Toast package using https://pub.dev/packages/fluttertoast
 - Launch icon & native splashscreen with https://pub.dev/packages/flutter_launcher_icons, https://pub.dev/packages/flutter_native_splash
+- Custom loader with https://pub.dev/packages/ffs_custom_loader
 
-
-## Getting Started with Flutter
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
