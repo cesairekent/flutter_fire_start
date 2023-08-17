@@ -1,10 +1,7 @@
-![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
-
-![](assets/images/icons/appIcon.png)
+# Flutter Fire Start
+![](https://github.com/cesairekent/flutter_fire_start/blob/bd1fe4798767680d981006cf6e2c9330a606ced4/assets/md-icon.png)
 
 ## Getting Started with FFS (flutter fire start)
-
-![](https://github.com/cesairekent/flutter_fire_start/blob/69826a464285e57488f0fca118f6003bd5d942a2/assets/images/icons/appIcon.png)
 
 **Warning !!! Before you start, you need to know the basics of flutter and dart.
 please check de official documentation https://docs.flutter.dev/**
